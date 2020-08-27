@@ -1,0 +1,13 @@
+{
+    "name": "gramm/wbc-tt",
+    "require": {},
+    "require-dev": {
+        "phalcon/devtools": "^4.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    }
+}

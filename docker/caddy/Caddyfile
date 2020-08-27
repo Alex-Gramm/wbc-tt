@@ -1,0 +1,9 @@
+http://*:80 {
+    tls off
+    root /app/public
+    gzip
+    fastcgi / backend:9000 php
+    rewrite {
+        to {path} {path}/ /index.php?{query}
+    }
+}
