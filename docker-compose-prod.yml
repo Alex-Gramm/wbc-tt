@@ -20,7 +20,7 @@ services:
     image: wbc-tt:backend
     build:
       context: .
-      dockerfile: docker/phalcon/Dockerfile
+      dockerfile: docker/phalcon/Dockerfile-prod
     depends_on:
       - mysql
 

@@ -26,8 +26,8 @@ RUN set -xe && \
             ${PWD}/php-psr-${PSR_VERSION} \
             ${PWD}/v${PHALCON_VERSION}.tar.gz \
             ${PWD}/cphalcon-${PHALCON_VERSION} \
-        && \
-        php -m \
+        && php -m \
+        && apt update && apt install zip unzip && rm -rf /var/lib/apt/lists/* \
         && mkdir /app
 
 # Works for docker-compose or building from project directory
