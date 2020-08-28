@@ -1,0 +1,42 @@
+<?php
+/** @var SignupForm $form */
+?>
+
+<form class="form-signup" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+
+    <input type='hidden' name='<?php echo $this->security->getTokenKey() ?>'
+           value='<?php echo $this->security->getToken() ?>'/>
+
+    <?php
+    foreach ($form->getElements() as $element) {
+        $name = $element->getName();
+        ?>
+        <div class="form-group row">
+            <label for="<?=$name?>>" class="col-sm-2 col-form-label text-success"><?=$element->getLabel()?></label>
+            <div class="col-sm-7">
+                <?php echo $form->render($name); ?>
+            </div>
+            <?php if ($messages = $form->getMessagesFor($name)) { ?>
+                <div class="col-sm-3">
+                    <?php foreach ($messages as $message) { ?>
+                        <small id="<?=$name?>Help" class="text-danger">
+                            <?= $message ?>
+                        </small>
+                    <? } ?>
+                </div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-lg btn-secondary btn-block" href="/login">Sign in</a>
+        </div>
+    </div>
+
+</form>
+</form>

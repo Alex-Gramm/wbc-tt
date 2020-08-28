@@ -1,9 +1,11 @@
 {
     "name": "gramm/wbc-tt",
-    "require": {},
+    "require": {
+    },
     "require-dev": {
         "phalcon/devtools": "^4.0",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "phalcon/migrations": "^1.1"
     },
     "autoload-dev": {
         "psr-4": {

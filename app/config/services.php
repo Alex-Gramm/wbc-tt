@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use Phalcon\Escaper;
-use Phalcon\Flash\Direct as Flash;
+use Phalcon\Flash\Session as Flash;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
@@ -10,6 +10,8 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Url as UrlResolver;
+use Phalcon\Mvc\Dispatcher;
+use Phalcon\Events\Manager as EventsManager;
 
 /**
  * Shared configuration service
@@ -96,7 +98,6 @@ $di->setShared('modelsMetadata', function () {
 $di->set('flash', function () {
     $escaper = new Escaper();
     $flash = new Flash($escaper);
-    $flash->setImplicitFlush(false);
     $flash->setCssClasses([
         'error'   => 'alert alert-danger',
         'success' => 'alert alert-success',

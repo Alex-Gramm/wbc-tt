@@ -27,4 +27,13 @@ RUN set -xe && \
             ${PWD}/v${PHALCON_VERSION}.tar.gz \
             ${PWD}/cphalcon-${PHALCON_VERSION} \
         && \
-        php -m
+        php -m \
+        && mkdir /app
+
+# Works for docker-compose or building from project directory
+#use `docker-compose build` or `docker build -f docker/phalcon/Dockerfile .`
+COPY . /app
+RUN chown -R www-data:www-data /app/public/
+
+# Composer install
+RUN  cd /app && composer install
