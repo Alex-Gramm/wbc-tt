@@ -21,6 +21,9 @@ services:
     build:
       context: .
       dockerfile: docker/phalcon/Dockerfile-prod
+    volumes:
+      # temporary mount assets to frontend
+      - .public:/app/public
     depends_on:
       - mysql
 
